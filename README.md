@@ -101,7 +101,7 @@ Pour obtenir le message chiffré nous allons donc, pour le première lettre, dé
 
 Le tableau suivant illustre cette example:
 
-| Type | 1 | 2 | 3 | 4 |
+| Position | 0 | 1 | 2 | 3 |
 | - | - | - | - | - |
 | Messsage | A | B | C | D |
 | Indice Message |1 | 2 | 3 | 4 |
@@ -120,6 +120,7 @@ Example:
  - Messaage: MESSAGE
  - Clef: UNECLEFBIENLONGUE
 
+| Position | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
 |Messsage|M|E|S|S|A|G|E|
 |Clef|U|N|E|C|L|E|F|
 |Message chiffré|H|S|X|V|M|N|K|
@@ -132,6 +133,7 @@ Example:
  - Messaage: MESSAGELONG
  - Clef: CLEF
 
+| Position | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
 |Messsage|M|E|S|S|A|G|E|L|O|N|G|
 |Clef|C|L|E|F|C|L|E|F|C|L|E|
 |Message chiffré|P|Q|X|Y|D|S|J|R|R|Z|L|
