@@ -101,11 +101,13 @@ Pour obtenir le message chiffré nous allons donc, pour le première lettre, dé
 
 Le tableau suivant illustre cette example:
 
+| Type | 1 | 2 | 3 | 4 |
 | - | - | - | - | - |
 | Messsage | A | B | C | D |
 | Indice Message |1 | 2 | 3 | 4 |
 | Clef | C | L | E | F |
 | Indice clef | 4 | 12 | 5 | 6 |
+| - | - | - | - | - |
 | Indice chiffré (somme de l'indice du message et de l'indice de la clef) | 5 | 14 | 8 | 10 | 
 | Message chiffré | E | N | H | J |
 
