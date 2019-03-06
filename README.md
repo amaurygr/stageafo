@@ -101,7 +101,6 @@ Pour obtenir le message chiffré nous allons donc, pour le première lettre, dé
 
 Le tableau suivant illustre cette example:
 
-| Type | 1 | 2 | 3 | 4 |
 | - | - | - | - | - |
 | Messsage | A | B | C | D |
 | Indice Message |1 | 2 | 3 | 4 |
