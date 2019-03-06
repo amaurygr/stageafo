@@ -1,6 +1,8 @@
-package com.halosys.app.stageafo.ciphering;
+package com.halosys.app.stageafo;
 
 
+import com.halosys.app.stageafo.ciphering.CaesarCiphering;
+import com.halosys.app.stageafo.ciphering.VigenereCiphering;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,7 +11,7 @@ public class Ciphering {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Ciphering.class);
 
-
+    // Cliquer sur le triangle vert à gauche dans la marge pour lancer
     public static void main(String[] args) {
 
         String message = "CECI EST UN MESSAGE SECRET";

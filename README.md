@@ -6,38 +6,94 @@
 
 #### Téléchargement et installation
 
-Télécharger et installer la dernière version d'IntelliJ.
+##### Télécharger et installer la dernière version d'IntelliJ.
 
-Télécharger et installer la dernière version du JDK 10.
+https://www.jetbrains.com/idea/download/#section=windows
+
+
+##### Télécharger et installer la dernière version du JDK 11.
+
+https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html
+
+
+##### Télécharger et installer la Git.
+
+https://git-scm.com/downloads
+
+
+#### Présentation de l'IntelliJ
+
+
+### Récupération et configuration du projet
+
+#### Récupération
+
+Les sources du projet sont disponibles sur le dépot GitHub sur lequel vous vous trouvez.
+
+Copier l'adresse du dépot depuiss GitHub:
+![Copier l'adresse du dépot](doc-assets/github_repo-adresse.png)
+
+Pour créer un nouveau projet depuis des sources disponible sur GitHub aller dans :
+ * `File > New > Project from Version Control > Git`
+
+![Copier l'adresse du dépot](doc-assets/ij_add-git-project.png)
+![Copier l'adresse du dépot](doc-assets/ij_add-git-project-2.png)
+
 
 #### Configuration
 
-#### Présentation
+Unr fois le projet récupéré depuis GitHub il vous faut configurer le JDK à utiliser:
+
+_Les screenhot font font mention du JDK 10, mais c'est bien le JDK 11 qu'il faut configurer._
+
+![Ajouter une JDK](doc-assets/add-jdk.png)
+
+![Configure javacompiler](doc-assets/javacompiler.png)
 
 
-### Récupération du projet
+#### Test
 
-#### Git
+Pour tester que tout fonctionne bien lancer le `main` de la classe `Ciphering`.
+
+![Configure javacompiler](doc-assets/ij_test-run.png)
+
+Si tout ce passe bien la console devrait afficher la sortie suivante:
+
+```
+Message en clair: CECI EST UN MESSAGE SECRET
+-- Chiffrement de César --
+Clef césar: 11
+Message chiffré (César): null
+
+-- Chiffrement de Vigenère --
+Clef Vigenère: SECRET
+Message chiffré (Vigenère): null
+
+
+Process finished with exit code 0
+```
+
+#### Git / GitHub
 
 
 
 ## Exercices
 
 Cette documentation n'est pas à consulter tout de suite mais pourra vous servir pour la résolution des exercices. 
-Documentation de la classe String: https://docs.oracle.com/javase/10/docs/api/java/lang/String.html
+Documentation de la classe `String`: https://docs.oracle.com/javase/10/docs/api/java/lang/String.html
 
-Méthodes interessantes de la classse String pour les exercice suivants:
+Méthodes interessantes de la classse `String` pour les exercice suivants:
 
- * length()
+ * `length()` :
  	Renvoie la taille de la chaîne de caractère.
  	Doc: https://docs.oracle.com/javase/10/docs/api/java/lang/String.html#length()
 
- * charAt(index)
+ * `charAt(index)` :
  	Revoie le caractère de la chaîne (String) qui est présent à la position "index".
  	Attention à ne pas dépasser la taille de la chaîne de caractère.
 	Doc: https://docs.oracle.com/javase/10/docs/api/java/lang/String.html#charAt(int)
 
- * toUpperCase()
+ * `toUpperCase()` :
  	Renvoi une chaîne de caractère (String) dans laquelle tous les caractères minuscules sont converti en majuscules.
  	doc: https://docs.oracle.com/javase/10/docs/api/java/lang/String.html#toUpperCase()
 
