@@ -46,9 +46,9 @@ Unr fois le projet récupéré depuis GitHub il vous faut configurer le JDK à u
 
 _Les screenhot font font mention du JDK 10, mais c'est bien le JDK 11 qu'il faut configurer._
 
-![Ajouter une JDK](doc-assets/add-jdk.png)
+![Ajouter une JDK](doc-assets/ij_add-jdk.png)
 
-![Configure java compiler](doc-assets/javacompiler.png)
+![Configure java compiler](doc-assets/ij_javacompiler.png)
 
 
 #### Test
