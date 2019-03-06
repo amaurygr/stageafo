@@ -48,14 +48,14 @@ _Les screenhot font font mention du JDK 10, mais c'est bien le JDK 11 qu'il faut
 
 ![Ajouter une JDK](doc-assets/add-jdk.png)
 
-![Configure javacompiler](doc-assets/javacompiler.png)
+![Configure java compiler](doc-assets/javacompiler.png)
 
 
 #### Test
 
 Pour tester que tout fonctionne bien lancer le `main` de la classe `Ciphering`.
 
-![Configure javacompiler](doc-assets/ij_test-run.png)
+![Test run](doc-assets/ij_test-run.png)
 
 Si tout ce passe bien la console devrait afficher la sortie suivante:
 
