@@ -101,12 +101,12 @@ Pour obtenir le message chiffré nous allons donc, pour le première lettre, dé
 
 Le tableau suivant illustre cette example:
 
-| Position | 0 | 1 | 2 | 3 |
-| - | - | - | - | - |
-| Messsage | A | B | C | D |
-| Indice Message |1 | 2 | 3 | 4 |
-| Clef | C | L | E | F |
-| Indice clef | 4 | 12 | 5 | 6 |
+| Position        | 0 | 1 | 2 | 3 |
+| --------------- | - | - | - | - |
+| Messsage        | A | B | C | D |
+| Indice Message  | 1 | 2 | 3 | 4 |
+| Clef            | C | L | E | F |
+| Indice clef     | 4 | 12| 5 | 6 |
 | - | - | - | - | - |
 | Indice chiffré (somme de l'indice du message et de l'indice de la clef) | 5 | 14 | 8 | 10 | 
 | Message chiffré | E | N | H | J |
@@ -120,10 +120,11 @@ Example:
  - Messaage: MESSAGE
  - Clef: UNECLEFBIENLONGUE
 
-| Position | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
-|Messsage|M|E|S|S|A|G|E|
-|Clef|U|N|E|C|L|E|F|
-|Message chiffré|H|S|X|V|M|N|K|
+| Position        | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
+| --------------- | - | - | - | - | - | - | - |
+| Messsage        | M | E | S | S | A | G | E |
+| Clef            | U | N | E | C | L | E | F |
+| Message chiffré | H | S | X | V | M | N | K |
 
 
 Et il existe aussi le cas où clef de chiffrement est plus courte que le message aà chhiffré. Dans ce cas il faut répéter la clef autant de fois que nécessaire afin d'arriver jusqu'à la dernière lettre du message. S'il rest des caractère excédentaire il devront être ignoré comme vu dans l'example précédent.
@@ -133,10 +134,11 @@ Example:
  - Messaage: MESSAGELONG
  - Clef: CLEF
 
-| Position | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
-|Messsage|M|E|S|S|A|G|E|L|O|N|G|
-|Clef|C|L|E|F|C|L|E|F|C|L|E|
-|Message chiffré|P|Q|X|Y|D|S|J|R|R|Z|L|
+| Position        | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10|
+| --------------- | - | - | - | - | - | - | - | - | - | - | - |
+| Messsage        | M | E | S | S | A | G | E | L | O | N | G |
+| Clef            | C | L | E | F | C | L | E | F | C | L | E |
+| Message chiffré | P | Q | X | Y | D | S | J | R | R | Z | L |
 
 
 Specification:
