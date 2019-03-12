@@ -1,11 +1,9 @@
 package com.halosys.app.stageafo;
 
-
 import com.halosys.app.stageafo.ciphering.CaesarCiphering;
 import com.halosys.app.stageafo.ciphering.VigenereCiphering;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 public class Ciphering {
 
@@ -14,36 +12,37 @@ public class Ciphering {
     // Cliquer sur le triangle vert à gauche dans la marge pour lancer
     public static void main(String[] args) {
 
+        int keyCesar = 11;
+        String keyVigenere = "SECRET";
+
         String message = "CECI EST UN MESSAGE SECRET";
         System.out.println("Message en clair: " + message);
 
-
+        System.out.println("\n- Clef césar    : " + keyCesar);
+        System.out.println("- Clef Vigenère : " + keyVigenere);
 
         // Chiffrement de César
-        System.out.println("-- Chiffrement de César --");
+        String caesarCiphered = CaesarCiphering.cipher(message, keyCesar);
 
-        int clefCaesar = 11;
+        System.out.println("\n\t-- Chiffrement César --");
+        System.out.println("Message chiffré   : " + caesarCiphered);
 
-        String caesarCiphered = CaesarCiphering.cipher(message, clefCaesar);
+        // Déchiffrement César
+        String caesarDeciphered = CaesarCiphering.decipher(caesarCiphered, keyCesar);
 
-        System.out.println("Clef césar: " + clefCaesar);
-        System.out.println("Message chiffré (César): " + caesarCiphered);
-        System.out.println("");
-
-
+        System.out.println("\n\t-- Dechiffrement César --");
+        System.out.println("Message déchiffré : " + caesarDeciphered);
 
         // Chiffrement Vigenère
-        System.out.println("-- Chiffrement de Vigenère --");
+        String vigenereCiphered = VigenereCiphering.cipher(message, keyVigenere);
 
-        String clefVigenere = "SECRET";
+        System.out.println("\n\t-- Chiffrement Vigenère --");
+        System.out.println("Message chiffré   : " + vigenereCiphered + "");
 
-        String vigenereCiphered = VigenereCiphering.cipher(message, clefVigenere);
+        // Déchiffreent Vigenère
+        String vigenereDeciphered = VigenereCiphering.decipher(vigenereCiphered, keyVigenere);
 
-        System.out.println("Clef Vigenère: " + clefVigenere);
-        System.out.println("Message chiffré (Vigenère): " + vigenereCiphered);
-
-        System.out.println("");
+        System.out.println("\n\t-- Déchiffrement Vigenère --");
+        System.out.println("Message déchiffré : " + vigenereDeciphered);
     }
-
-
 }

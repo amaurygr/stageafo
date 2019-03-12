@@ -23,7 +23,7 @@ public class CaesarCipheringTest {
     public void testCipher_overflow() {
 
         // On chiffre un message qui contient des lettres en fin d'alphabet pour généré un dépassement de l'alphabet
-        String ciphered = CaesarCiphering.cipher("XYZ", 2);
+        String ciphered = CaesarCiphering.cipher("XYZ", 5);
 
         // On test que le résultat est bien conforme à ce qui est attendu
         Assert.assertEquals("Message avec dépassement n'est pas chiffré correctement", "CDE", ciphered);
