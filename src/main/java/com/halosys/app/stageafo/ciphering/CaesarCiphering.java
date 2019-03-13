@@ -3,19 +3,20 @@ package com.halosys.app.stageafo.ciphering;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.lang.ref.Cleaner;
-
 public class CaesarCiphering {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CaesarCiphering.class);
+    private static final short NB_OF_LETTERS_ALPHABET = ('Z' - 'A' + 1);
+    private static final short MAX_KEY_LIMIT = 25;
+    private static final short MIN_KEY_LIMIT = 1;
 
     private static boolean keyTest(int key, int limitMax, int limitMin) {
 
         if (key > limitMax) {
-            System.out.println("Clef superieur a " + limitMax + " !");
+            System.out.println("Clef superieur à " + limitMax + " !");
             return false;
         } else if (key < limitMin) {
-            System.out.println("Clef inferieur a " + limitMin + " !");
+            System.out.println("Clef inferieur à " + limitMin + " !");
             return false;
         }
         return true;
@@ -23,11 +24,9 @@ public class CaesarCiphering {
 
     private static boolean specialCharacter(char data) {
 
-        if(data < 'A' || data > 'Z') {
-            if(data < 'a' || data > 'z') {
-                if(data != ' ') {
-                    return true;
-                }
+        if (data < 'A' || data > 'Z') {
+            if (data != ' ') {
+                return true;
             }
         }
         return false;
@@ -35,53 +34,42 @@ public class CaesarCiphering {
 
     private static char cipherDeplaceCharacter(char data, int key) {
 
-        for(int i = 0; i < key; i++) {
-            data++;
-            if (data > 'Z') {
-                data = 'A';
-            }
+        char offsetData = (char) (data + key);
+
+        if (offsetData > 'Z') {
+            offsetData -= NB_OF_LETTERS_ALPHABET;
+        } else if (offsetData < 'A') {
+            offsetData += NB_OF_LETTERS_ALPHABET;
         }
-        return data;
+
+        return offsetData;
     }
 
-    private static char decipherDeplaceCharacter(char data, int key) {
+    private static String cipheringDeciphering(String startData, int key, int keyLimitMax, int keyLimitMin) {
 
-        for(int i = 0; i < key; i++) {
-            data--;
-            if (data < 'a') {
-                data = 'z';
-            }
-        }
-        return data;
-    }
-
-    public static String cipher(String clearData, int key) {
-
-        int dataLength = clearData.length();
+        int dataLength = startData.length();
         int comp = 0;
         char dataChar;
 
-        if (!keyTest(key, 25, 1)) {
+        if (!keyTest(key, keyLimitMax, keyLimitMin)) {
             return null;
         }
 
-        clearData = clearData.toUpperCase();
+        startData = startData.toUpperCase();
 
-        for(int i = 0; i < clearData.length(); i++) {
+        for (int i = 0; i < startData.length(); i++) {
 
-            if(!specialCharacter(clearData.charAt(i))) {
-                dataChar = clearData.charAt(i);
-            } else {
+            if (specialCharacter(startData.charAt(i))) {
                 dataLength--;
             }
         }
 
         char[] data = new char[dataLength];
 
-        for(int i = 0; i < clearData.length(); i++) {
+        for (int i = 0; i < startData.length(); i++) {
 
-            if(!specialCharacter(clearData.charAt(i))) {
-                dataChar = clearData.charAt(i);
+            if (!specialCharacter(startData.charAt(i))) {
+                dataChar = startData.charAt(i);
             } else {
                 continue;
             }
@@ -90,56 +78,20 @@ public class CaesarCiphering {
                 dataChar = cipherDeplaceCharacter(dataChar, key);
             }
 
-            if(comp < dataLength) {
+            if (comp < dataLength) {
                 data[comp] = dataChar;
                 comp++;
             }
         }
-        String cipheredData = new String(data);
-        return cipheredData;
+        String endData = new String(data);
+        return endData;
+    }
+
+    public static String cipher(String clearData, int key) {
+        return cipheringDeciphering(clearData, key, MAX_KEY_LIMIT, MIN_KEY_LIMIT);
     }
 
     public static String decipher(String cipheredData, int key) {
-
-        int dataLength = cipheredData.length();
-        int comp = 0;
-        char dataChar;
-
-        if (!keyTest(key, 25, 1)) {
-            return null;
-        }
-
-        cipheredData = cipheredData.toLowerCase();
-
-        for(int i = 0; i < cipheredData.length(); i++) {
-
-            if(!specialCharacter(cipheredData.charAt(i))) {
-                dataChar = cipheredData.charAt(i);
-            } else {
-                dataLength--;
-            }
-        }
-
-        char[] data = new char[dataLength];
-
-        for(int i = 0; i < cipheredData.length(); i++) {
-
-            if(!specialCharacter(cipheredData.charAt(i))) {
-                dataChar = cipheredData.charAt(i);
-            } else {
-                continue;
-            }
-
-            if (dataChar != ' ') {
-                dataChar = decipherDeplaceCharacter(dataChar, key);
-            }
-
-            if(comp < dataLength) {
-                data[comp] = dataChar;
-                comp++;
-            }
-        }
-        String clearData = new String(data);
-        return clearData;
+        return cipheringDeciphering(cipheredData, -key, -MIN_KEY_LIMIT, -MAX_KEY_LIMIT);
     }
 }
