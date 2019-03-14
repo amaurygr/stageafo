@@ -16,10 +16,9 @@ public class Ciphering {
         String keyVigenere = "SECRET";
 
         String message = "CECI EST UN MESSAGE SECRET";
-        System.out.println("Message en clair: " + message);
+        System.out.println("Message en clair : " + message);
 
-        System.out.println("\n- Clef césar    : " + keyCesar);
-        System.out.println("- Clef Vigenère : " + keyVigenere);
+        System.out.println("\n- Clef César    : " + keyCesar);
 
         // Chiffrement de César
         String caesarCiphered = CaesarCiphering.cipher(message, keyCesar);
@@ -32,6 +31,8 @@ public class Ciphering {
 
         System.out.println("\n\t-- Dechiffrement César --");
         System.out.println("Message déchiffré : " + caesarDeciphered);
+
+        System.out.println("\n- Clef César    : " + keyVigenere);
 
         // Chiffrement Vigenère
         String vigenereCiphered = VigenereCiphering.cipher(message, keyVigenere);

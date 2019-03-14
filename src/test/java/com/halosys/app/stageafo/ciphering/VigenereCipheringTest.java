@@ -15,7 +15,7 @@ public class VigenereCipheringTest {
         String ciphered = VigenereCiphering.cipher("ABCD", "CLEF");
 
         // On test que le résultat est bien conforme à ce qui est attendu
-        Assert.assertEquals("Message basic n'est pas chiffré correctement", "ENHJ", ciphered);
+        Assert.assertEquals("Message basic n'est pas chiffré correctement", "DNHJ", ciphered);
     }
 
     @Test
@@ -67,7 +67,7 @@ public class VigenereCipheringTest {
         String ciphered = VigenereCiphering.cipher("MESSAGE", "UNECLEFBIENLONGUE");
 
         // On test que le résultat est bien conforme à ce qui est attendu
-        Assert.assertEquals("Message chiffré avec une longue clef n'est pas correct", "HSXVMNK", ciphered);
+        Assert.assertEquals("Message chiffré avec une longue clef n'est pas correct", "HSXVMLK", ciphered);
     }
 
 
